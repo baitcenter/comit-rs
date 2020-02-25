@@ -105,6 +105,7 @@ jobs:
 
       - name: Make upload url available as an env variable
         run: |
+          ls -la ./upload-url-artifact
           echo "::set-env name=UPLOAD_URL::$(cat ./upload-url-artifact/upload-url.txt)"
 
       - name: Upload ${{ matrix.os }} release binary
