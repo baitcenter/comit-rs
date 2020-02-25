@@ -12,7 +12,7 @@ on:
 
 jobs:
   release:
-    name: Publish new release
+    name: Create GitHub release
     runs-on: ubuntu-latest
 #    if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
     steps:
@@ -36,15 +36,16 @@ jobs:
           draft: false
           prerelease: false
 
+      - uses: actions/checkout@v2
       - name: Save upload url to text file
         run: |
-          echo "${{ steps.create-release.outputs.upload_url }}" > upload_url.txt
+          echo "${{ steps.create-release.outputs.upload_url }}" > ./upload_url.txt
 
       - name: Store upload url as an artifact
         uses: actions/upload-artifact@v1
         with:
           name: upload-url
-          path: upload-url.txt
+          path: ./upload_url.txt
 
 #      - name: Merge release into dev branch
 #        uses: thomaseizinger/create-pull-request@1.0.0
