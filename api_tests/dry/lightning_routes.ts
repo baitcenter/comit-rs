@@ -10,9 +10,8 @@ setTimeout(async function() {
         oneActorTest(
             "lightning-routes-post-eth-lnbtc-return-400",
             async function({ alice }) {
-                return expect(
-                    alice.cnd.postHanEthereumEtherHalightLightningBitcoin()
-                ).to.eventually.be.rejected.then(error => {
+                const promise = alice.cnd.postHanEthereumEtherHalightLightningBitcoin();
+                return expect(promise).to.eventually.be.rejected.then(error => {
                     expect(error).to.have.property(
                         "message",
                         "Request failed with status code 400"
@@ -24,9 +23,8 @@ setTimeout(async function() {
         oneActorTest(
             "lightning-routes-post-erc20-lnbtc-return-400",
             async function({ alice }) {
-                return expect(
-                    alice.cnd.postHerc20EthereumErc20HalightLightningBitcoin()
-                ).to.eventually.be.rejected.then(error => {
+                const promise = alice.cnd.postHerc20EthereumErc20HalightLightningBitcoin();
+                return expect(promise).to.eventually.be.rejected.then(error => {
                     expect(error).to.have.property(
                         "message",
                         "Request failed with status code 400"
@@ -38,9 +36,8 @@ setTimeout(async function() {
         oneActorTest(
             "lightning-routes-post-lnbtc-eth-return-400",
             async function({ alice }) {
-                return expect(
-                    alice.cnd.postHalightLightningBitcoinHanEthereumEther()
-                ).to.eventually.be.rejected.then(error => {
+                const promise = alice.cnd.postHalightLightningBitcoinHanEthereumEther();
+                return expect(promise).to.eventually.be.rejected.then(error => {
                     expect(error).to.have.property(
                         "message",
                         "Request failed with status code 400"
@@ -52,9 +49,8 @@ setTimeout(async function() {
         oneActorTest(
             "lightning-routes-post-lnbtc-erc20-return-400",
             async function({ alice }) {
-                return expect(
-                    alice.cnd.postHalightLightningBitcoinHerc20EthereumErc20()
-                ).to.eventually.be.rejected.then(error => {
+                const promise = alice.cnd.postHalightLightningBitcoinHerc20EthereumErc20();
+                return expect(promise).to.eventually.be.rejected.then(error => {
                     expect(error).to.have.property(
                         "message",
                         "Request failed with status code 400"
