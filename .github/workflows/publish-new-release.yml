@@ -14,7 +14,7 @@ jobs:
   release:
     name: Publish new release
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
+#    if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
     steps:
       - name: Extract version from branch name (for release branches)
         if: startsWith(github.event.pull_request.head.ref, 'release/')
