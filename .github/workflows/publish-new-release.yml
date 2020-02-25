@@ -22,9 +22,7 @@ jobs:
           BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
           VERSION=${BRANCH_NAME#release/}
 
-          COMMIT=$(git rev-parse HEAD)
-
-          echo "::set-env name=RELEASE_VERSION::test-$COMMIT"
+          echo "::set-env name=RELEASE_VERSION::test-${{ github.sha }}"
 
       - name: Create Release
         id: create-release
